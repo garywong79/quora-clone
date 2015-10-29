@@ -1,0 +1,23 @@
+<div class="container">
+	
+	<h2>Questions & Answer</h2>
+	<dl>
+	<dt><%=@question.question_detail%></dt>
+		<%=@question.user.name%>
+		<% @question.answers.each do |a| %>
+			<%=a.answer_detail%>
+			<a href="<%= "/users/profile" %>"><%= a.user.name %></a>
+		<% end %>
+		<form method="post"  action="/questions/<%=@question.id%>/answers">
+  			<div class="form-group">
+	   			<input type="text" placeholder class="form-control" placeholder="Write Your Answer" name="answer[answer_detail]">
+  			</div>
+  			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
+		
+
+	</dl>
+</div>
+
+
